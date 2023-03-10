@@ -14,7 +14,6 @@ struct table create_table(uint32_t max_array_len){
     t.max_arr_len = max_array_len;
     t.curr_arr_len = 0;
 
-
     return t;
 }
 
@@ -28,7 +27,11 @@ long get_file_size(FILE* fp) {
 
 void count(struct table *t, char *filename){
     if (access(filename, F_OK) != 0) {
-        printf("File doesn't exist111gh1 %s\n", filename);
+        printf("File doesn't exist %s\n", filename);
+        return;
+    }
+    if (t -> curr_arr_len >= t->max_arr_len){
+        printf("Table is full\n");
         return;
     }
 
@@ -37,7 +40,6 @@ void count(struct table *t, char *filename){
     char outp[1000] = "wc ";
 
     strcat(outp, filename);
-    printf("output: %s\n",outp);
     system(strcat(outp, " >> ./tmp/tmp"));
 
     FILE* tmp_file_ptr = fopen("tmp/tmp", "r");
@@ -49,11 +51,12 @@ void count(struct table *t, char *filename){
     fclose(tmp_file_ptr);
     t->curr_arr_len++;
     system("rm tmp/tmp");
+    printf("COUNTED FILE: %s\n", filename);
 }
 
 char* get_block(struct table t, uint32_t index){
     if (index >= t.curr_arr_len){
-        printf("Invalid index %d\n", index);
+        printf("Invalid index: %d\n", index);
         return "\0";
     }
     return t.arr[index];
@@ -61,12 +64,11 @@ char* get_block(struct table t, uint32_t index){
 
 void remove_block(struct table *t, uint32_t index){
     if (index >= t->curr_arr_len){
-        printf("Invalid index %d\n", index);
+        printf("Invalid index: %d\n", index);
         return;
     }
 
     free(t->arr[index]);
-    t->curr_arr_len --;
 }
 
 void free_table(struct table *t){

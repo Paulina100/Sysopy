@@ -9,19 +9,16 @@
 int main()
 {
     // commands
-    char *INIT_SIZE = "init size";
-    char *COUNT_FILE = "count file";
-    char *SHOW_INDEX = "show index";
-    char *DELETE_INDEX_INDEX = "delete index index";
+    char *INIT_SIZE = "init";
+    char *COUNT_FILE = "count";
+    char *SHOW_INDEX = "show";
+    char *DELETE_INDEX_INDEX = "delete";
     char *DESTROY = "destroy";
 
     struct table TABLE;
 
-
-    // nieskonczona petla zczytujemy linia po linii polecenia i je wykonujemy
-    // char cmd[4096];
     char *cmd = calloc(4096, sizeof(char));
-
+    // infinite loop, reads command line
 	for (;;) {
 		fgets(cmd, 4096, stdin);
 
@@ -29,22 +26,31 @@ int main()
         if (strncmp(cmd, INIT_SIZE, strlen(INIT_SIZE)) == 0){
             index = strlen(INIT_SIZE) - 1;
             if (cmd[index + 1] != ' '){
-                printf("Invalid argument %s\n", cmd);   
+                printf("Invalid argument: %s\n", cmd); 
+                continue;
             }
 
             int size = atoi(&cmd[index + 2]);
-            if (size == 0){
-                printf("Invalid size %s\n", cmd);
+            if (size <= 0){
+                printf("Invalid size: %s\n", cmd);
+                continue;
             }
 
             TABLE = create_table(size);
             printf("INITIALIZED TABLE OF SIZE: %d\n", size);
         }
         else if (strncmp(cmd, COUNT_FILE, strlen(COUNT_FILE)) == 0){
+            printf("size of table %ld\n", sizeof(TABLE));
+            if (sizeof(TABLE) == 0){
+                printf("Table is not initialized\n");
+                continue;
+            }
+
             index = strlen(COUNT_FILE) - 1;
 
             if (cmd[index + 1] != ' '){
-                printf("Invalid argument %s\n", cmd);
+                printf("Invalid argument: %s\n", cmd);
+                continue;
             }
 
             char *filename = &cmd[index + 2];
@@ -55,18 +61,18 @@ int main()
                 }
             }
             count(&TABLE, filename);
-            printf("COUNTED FILE: %s\n", filename);
         }
         else if (strncmp(cmd, SHOW_INDEX, strlen(SHOW_INDEX)) == 0){
             index = strlen(SHOW_INDEX) - 1;
-
             if (cmd[index + 1] != ' '){
-                printf("Invalid argument %s\n", cmd);
+                printf("Invalid argument: %s\n", cmd);
+                continue;
             }
 
             int table_index = atoi(&cmd[index + 2]);
-            if (table_index == 0){
-                printf("Invalid index %s\n", cmd);
+            if (table_index <= 0 && cmd[index + 2] != 48){
+                printf("Invalid index: %s\n", cmd);
+                continue;
             }
 
             char* block = get_block(TABLE, table_index);
@@ -77,12 +83,14 @@ int main()
             index = strlen(DELETE_INDEX_INDEX) - 1;
 
             if (cmd[index + 1] != ' '){
-                printf("Invalid argument %s\n", cmd);
+                printf("Invalid argument: %s\n", cmd);
+                continue;
             }
 
             int table_index = atoi(&cmd[index + 2]);
-            if (table_index == 0){
-                printf("Invalid index %s\n", cmd);
+            if (table_index <= 0 && cmd[index + 2] != 48){
+                printf("Invalid index: %s\n", cmd);
+                continue;
             }
 
             remove_block(&TABLE, table_index);
@@ -93,7 +101,8 @@ int main()
             index = strlen(DESTROY);
 
             if (cmd[index + 1] != '\0'){
-                printf("Invalid argument %s\n", cmd);
+                printf("Invalid argument: %s\n", cmd);
+                continue;
             }
             free_table(&TABLE);
             printf("TABLE DESTROYED\n");
