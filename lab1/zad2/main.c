@@ -25,14 +25,11 @@ int main()
 	for (;;) {
 		fgets(cmd, 4096, stdin);
 
-
         uint32_t index;
         if (strncmp(cmd, INIT_SIZE, strlen(INIT_SIZE)) == 0){
             index = strlen(INIT_SIZE) - 1;
-            printf("init_size");
-
             if (cmd[index + 1] != ' '){
-                printf("Invalid argument %s\n", cmd);
+                printf("Invalid argument %s\n", cmd);   
             }
 
             int size = atoi(&cmd[index + 2]);
@@ -45,7 +42,6 @@ int main()
         }
         else if (strncmp(cmd, COUNT_FILE, strlen(COUNT_FILE)) == 0){
             index = strlen(COUNT_FILE) - 1;
-            printf("count_file");
 
             if (cmd[index + 1] != ' '){
                 printf("Invalid argument %s\n", cmd);
@@ -58,15 +54,11 @@ int main()
                     break;
                 }
             }
-            printf("filename: %s\n", filename);
             count(&TABLE, filename);
-            printf("tutaj");
-            printf("zawartosc komorki %s\n", TABLE.arr[TABLE.curr_arr_len]);
-            printf("curr_arr_len %d\n", TABLE.curr_arr_len);
+            printf("COUNTED FILE: %s\n", filename);
         }
         else if (strncmp(cmd, SHOW_INDEX, strlen(SHOW_INDEX)) == 0){
             index = strlen(SHOW_INDEX) - 1;
-            printf("show_index");
 
             if (cmd[index + 1] != ' '){
                 printf("Invalid argument %s\n", cmd);
@@ -78,12 +70,11 @@ int main()
             }
 
             char* block = get_block(TABLE, table_index);
-            printf("%s\n", block);
+            printf("INDEX %d:%s\n", table_index, block);
 
         }
         else if (strncmp(cmd, DELETE_INDEX_INDEX, strlen(DELETE_INDEX_INDEX)) == 0){
             index = strlen(DELETE_INDEX_INDEX) - 1;
-            printf("delete_index");
 
             if (cmd[index + 1] != ' '){
                 printf("Invalid argument %s\n", cmd);
@@ -95,16 +86,17 @@ int main()
             }
 
             remove_block(&TABLE, table_index);
+            printf("DELETED INDEX: %d\n", table_index);
 
         }
         else if (strncmp(cmd, DESTROY, strlen(DESTROY)) == 0){
-            index = strlen(DESTROY) - 1;
-            printf("destroy");
+            index = strlen(DESTROY);
 
             if (cmd[index + 1] != '\0'){
                 printf("Invalid argument %s\n", cmd);
             }
             free_table(&TABLE);
+            printf("TABLE DESTROYED\n");
         }
         else{
             printf("Invalid argument: %s\n", cmd);

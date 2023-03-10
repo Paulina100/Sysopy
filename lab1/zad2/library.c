@@ -27,12 +27,6 @@ long get_file_size(FILE* fp) {
 }
 
 void count(struct table *t, char *filename){
-    printf("inside count file name: %s\n", filename);
-    printf("Access result: %d\n", access(filename, F_OK));
-    char dir[200];
-    getcwd(dir, sizeof(dir));
-    printf("Current directory: %s\n", dir);
-    printf("Strcm result: %d\n", strcmp(filename, "fajel"));
     if (access(filename, F_OK) != 0) {
         printf("File doesn't exist111gh1 %s\n", filename);
         return;
@@ -47,7 +41,6 @@ void count(struct table *t, char *filename){
     system(strcat(outp, " >> ./tmp/tmp"));
 
     FILE* tmp_file_ptr = fopen("tmp/tmp", "r");
-    printf("jestem tu\n");
     long tmp_size = get_file_size(tmp_file_ptr);
 
     t->arr[t->curr_arr_len] = calloc(tmp_size, sizeof(char));
@@ -55,14 +48,10 @@ void count(struct table *t, char *filename){
     fread(t->arr[t->curr_arr_len], sizeof(char), tmp_size, tmp_file_ptr);
     fclose(tmp_file_ptr);
     t->curr_arr_len++;
-    printf("index %d\n", t->curr_arr_len);
-    printf("zawartosc komorki %s\n", t->arr[t->curr_arr_len - 1]);
-    printf("curr_arr_len %d\n", t->curr_arr_len);
     system("rm tmp/tmp");
 }
 
 char* get_block(struct table t, uint32_t index){
-    printf("curr_arr_len %d\n", t.curr_arr_len);
     if (index >= t.curr_arr_len){
         printf("Invalid index %d\n", index);
         return "\0";
