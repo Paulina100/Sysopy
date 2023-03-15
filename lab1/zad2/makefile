@@ -16,12 +16,12 @@ shared:
 
 dynamic:
 	make -C ../zad1 shared
-	$(CC) $(CFLAGS) main.c -ldl -D LIB_DYNAMIC -o main
-	./main
+	$(CC) $(CFLAGS) main.c -ldl -D LIB_DYNAMIC -o main.out
+	./main.out
 
 main:
 	$(CC) $(CFLAGS) -c main.c
 
 clean:
 	make -C ../zad1 clean
-	rm -rf *.o *.a *.so tmp
+	rm -rf *.o *.out
