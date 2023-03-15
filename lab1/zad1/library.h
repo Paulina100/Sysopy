@@ -15,12 +15,12 @@ struct table
 
 struct table create_table(uint32_t max_array_len);
 
-void count(struct table t, char* filename);
+void count(struct table *t, char* filename);
 
 char* get_block(struct table t, uint32_t index);
 
-void remove_block(struct table t, uint32_t index);
+void remove_block(struct table *t, uint32_t index);
 
-void free_table(struct table t);
+void free_table(struct table *t);
 
 #endif

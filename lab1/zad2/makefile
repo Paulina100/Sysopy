@@ -5,21 +5,22 @@ all: static shared clean
 
 static:
 	make -C ../zad1 static
+	make main
+	$(CC) $(CFLAGS) main.o ../zad1/liblibrary.a -o main.out
+	./main.out
 
 shared:
 	make -C ../zad1 shared
-
-main:
-	$(CC) $(CFLAGS) -c library.c
-	$(CC) $(CFLAGS) -c main.c
-	$(CC) $(CFLAGS) main.o library.o -o main.out
+	$(CC) $(CFLAGS) main.c -l library -L ../zad1 -Wl,-rpath,../zad1 -o main.out
 	./main.out
 
-
-main_static: 
-	$(CC) $(CFLAGS) main.o liblibrary.a –o main.out
+dynamic:
+	make -C ../zad1 shared
+	$(CC) $(CFLAGS) main.c -ldl -D LIB_DYNAMIC -o main
 	./main
 
+main:
+	$(CC) $(CFLAGS) -c main.c
 
 clean:
 	make -C ../zad1 clean
