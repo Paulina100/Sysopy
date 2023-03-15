@@ -1,8 +1,6 @@
 CC = gcc
 CFLAGS=-Wall
 
-all: static shared clean
-
 static:
 	$(CC) $(CFLAGS) -c library.c
 	ar rcs liblibrary.a library.o

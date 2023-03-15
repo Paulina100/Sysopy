@@ -47,6 +47,7 @@ int main()
     char *SHOW_INDEX = "show";
     char *DELETE_INDEX_INDEX = "delete";
     char *DESTROY = "destroy";
+    char *EXIT = "exit";
 
     #ifdef LIB_DYNAMIC
         void *handle = dlopen("../zad1/liblibrary.so", RTLD_LAZY);
@@ -97,6 +98,9 @@ int main()
             table_initialized = 1;
             printf("INITIALIZED TABLE OF SIZE: %d\n", size);
             print_times();
+            }
+            else if(strncmp(cmd, EXIT, strlen(EXIT)) == 0){
+                return 0;
             }
             else{
                 printf("You need to initialized table first.\n");
@@ -197,6 +201,9 @@ int main()
                 table_initialized = 0;
                 printf("TABLE DESTROYED\n");
                 print_times();
+            }
+            else if(strncmp(cmd, EXIT, strlen(EXIT)) == 0){
+                return 0;
             }
             else{
                 printf("Invalid argument: %s\n", cmd);

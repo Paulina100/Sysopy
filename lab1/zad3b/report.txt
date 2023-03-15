@@ -1,0 +1,6 @@
+W pliku ./test_results sa wyniki testow dla roznych poziomow optymalizacji.
+
+Po wykonaniu optymalizacji czas wykonywania funkcji zwiekszyl sie w poszczegolnych przypadkach:
+Dla biblioteki statycznej opcja -O1 i -Os liczyla sie minimalnie dluzej.
+Dla biblioteki dzielonej opcja -O0 i -O1 liczyly sie dluzej.
+Dla biblioteki dynamicznej opcja -Os liczyla sie dluzej.

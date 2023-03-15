@@ -1,0 +1,9 @@
+W pliku ./test_results sa wyniki testow dla roznych typow bibliotek.
+
+Czasy wszystkich operacji z wyjatkiem operacji zliczania sa bliskie 0.
+Zgodnie z oczekiwaniami im wiekszy plik tym dluzej sie liczy.
+
+Dla roznych bibliotek czasy wychodza bardzo zblizone.
+
+Pliki >= 10mega powstaly z uzyciem komendy truncate ktora zwraca plik wypelniony nullowymi bajtami.
+Dlatego komenda wc zwaca 0 0 <ilosc bajtow>.

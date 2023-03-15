@@ -1,0 +1,39 @@
+INITIALIZED TABLE OF SIZE: 100
+TIMES: real 0.000s user 0.000s sys 0.000s
+COUNTED FILE: ../zad2/files/1kilo_file.txt
+TIMES: real 0.000s user 0.000s sys 0.000s
+COUNTED FILE: ../zad2/files/1mega_file.txt
+TIMES: real 0.030s user 0.010s sys 0.000s
+COUNTED FILE: ../zad2/files/10mega_file.txt
+TIMES: real 0.930s user 0.740s sys 0.000s
+COUNTED FILE: ../zad2/files/100mega_file.txt
+TIMES: real 7.770s user 7.360s sys 0.040s
+COUNTED FILE: ../zad2/files/1giga_file.txt
+TIMES: real 97.330s user 75.380s sys 0.870s
+INDEX 0:   6  146 1006 ../zad2/files/1kilo_file.txt
+
+TIMES: real 0.000s user 0.000s sys 0.000s
+INDEX 1:   3362  148970 1011082 ../zad2/files/1mega_file.txt
+
+TIMES: real 0.000s user 0.000s sys 0.000s
+INDEX 2:       0        0 10485760 ../zad2/files/10mega_file.txt
+
+TIMES: real 0.000s user 0.000s sys 0.000s
+INDEX 3:        0         0 104857600 ../zad2/files/100mega_file.txt
+
+TIMES: real 0.000s user 0.000s sys 0.000s
+INDEX 4:         0          0 1073741824 ../zad2/files/1giga_file.txt
+
+TIMES: real 0.000s user 0.000s sys 0.000s
+DELETED INDEX: 0
+TIMES: real 0.000s user 0.000s sys 0.000s
+DELETED INDEX: 1
+TIMES: real 0.000s user 0.000s sys 0.000s
+DELETED INDEX: 2
+TIMES: real 0.000s user 0.000s sys 0.000s
+DELETED INDEX: 3
+TIMES: real 0.000s user 0.000s sys 0.000s
+DELETED INDEX: 4
+TIMES: real 0.000s user 0.000s sys 0.000s
+TABLE DESTROYED
+TIMES: real 0.000s user 0.000s sys 0.000s
