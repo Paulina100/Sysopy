@@ -1,0 +1,14 @@
+SYS
+1kilo_file
+Files tmp and ./files/out_1kilo_file.txt are identical
+1mega_file
+Files tmp and ./files/out_1mega_file.txt are identical
+10mega_file
+Files tmp and ./files/out_10mega_file.txt are identical
+LIB
+1kilo_file
+Files tmp and ./files/out_1kilo_file.txt are identical
+1mega_file
+Files tmp and ./files/out_1mega_file.txt are identical
+10mega_file
+Files tmp and ./files/out_10mega_file.txt are identical

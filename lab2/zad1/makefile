@@ -3,17 +3,24 @@ all: test clean
 
 sys:
 	gcc translate.c -o translate.out -D SYS
-	./translate.out a b ./files/in_file1.txt ./files/out_file1_sys.txt
-	tr a b < ./files/in_file1.txt > tmp
-	diff -s tmp ./files/out_file1_sys.txt
 
 lib:
 	gcc translate.c -o translate.out -D LIB
-	./translate.out a b ./files/in_file1.txt ./files/out_file1_lib.txt
-	tr a b < ./files/in_file1.txt > tmp
-	diff -s tmp ./files/out_file1_lib.txt
 
-test: sys lib
+test: 
+	echo "SYS" > pomiar_zad1.txt
+	echo "SYS" > poprawnosc_zad1.txt
+	make sys
+	./tests/time_test >> pomiar_zad1.txt
+	./tests/correctness_test >> poprawnosc_zad1.txt
+
+	make clean
+
+	echo "LIB" >> pomiar_zad1.txt
+	echo "LIB" >> poprawnosc_zad1.txt
+	make lib
+	./tests/time_test >> pomiar_zad1.txt
+	./tests/correctness_test >> poprawnosc_zad1.txt
 
 clean:
-	rm -fr *.out files/out_file1.txt
+	rm -fr *.out files/out*

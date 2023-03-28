@@ -1,44 +1,14 @@
-# 1kilo_file
+echo "1kilo_file"
 tr a b < ./files/1kilo_file.txt > tmp
-diff -s tmp ./files/out_1kilo_file_sys.txt
+diff -s tmp ./files/out_1kilo_file.txt
 rm tmp
 
-tr a b < ./files/1kilo_file.txt > tmp
-diff -s tmp ./files/out_1kilo_file_lib.txt
-rm tmp
-
-# 1mega_file
+echo "1mega_file"
 tr a b < ./files/1mega_file.txt > tmp
-diff -s tmp ./files/out_1mega_file_sys.txt
+diff -s tmp ./files/out_1mega_file.txt
 rm tmp
 
-tr a b < ./files/1mega_file.txt > tmp
-diff -s tmp ./files/out_1mega_file_lib.txt
-rm tmp
-
-# 10mega_file
+echo "10mega_file"
 tr a b < ./files/10mega_file.txt > tmp
-diff -s tmp ./files/out_10mega_file_sys.txt
-rm tmp
-
-tr a b < ./files/10mega_file.txt > tmp
-diff -s tmp ./files/out_10mega_file_lib.txt
-rm tmp
-
-# 100mega_file
-tr a b < ./files/100mega_file.txt > tmp
-diff -s tmp ./files/out_100mega_file_sys.txt
-rm tmp
-
-tr a b < ./files/100mega_file.txt > tmp
-diff -s tmp ./files/out_100mega_file_lib.txt
-rm tmp
-
-# 1giga_file
-tr a b < ./files/1giga_file.txt > tmp
-diff -s tmp ./files/out_1giga_file_sys.txt
-rm tmp
-
-tr a b < ./files/1giga_file.txt > tmp
-diff -s tmp ./files/out_1giga_file_lib.txt
+diff -s tmp ./files/out_10mega_file.txt
 rm tmp

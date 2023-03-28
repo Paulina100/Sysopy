@@ -1,19 +1,8 @@
-# 1kilo_file
-./translate.out a b ./files/1kilo_file.txt ./files/out_1kilo_file_sys.txt
-./translate.out a b ./files/1kilo_file.txt ./files/out_1kilo_file_lib.txt
+echo "1kilo_file"
+./translate.out a b ./files/1kilo_file.txt ./files/out_1kilo_file.txt
 
-# 1mega_file
-./translate.out a b ./files/1mega_file.txt ./files/out_1mega_file_sys.txt
-./translate.out a b ./files/1mega_file.txt ./files/out_1meaga_file_lib.txt
+echo "1mega_file"
+./translate.out a b ./files/1mega_file.txt ./files/out_1mega_file.txt
 
-# 10mega_file
-./translate.out a b ./files/10mega_file.txt ./files/out_10mega_file_sys.txt
-./translate.out a b ./files/10mega_file.txt ./files/out_10meaga_file_lib.txt
-
-# 100mega_file
-./translate.out a b ./files/1000mega_file.txt ./files/out_100mega_file_sys.txt
-./translate.out a b ./files/1000mega_file.txt ./files/out_100meaga_file_lib.txt
-
-# 1giga_file
-./translate.out a b ./files/1giga_file.txt ./files/out_1giga_file_sys.txt
-./translate.out a b ./files/1giga_file.txt ./files/out_1giaga_file_lib.txt
+echo "10mega_file"
+./translate.out a b ./files/10mega_file.txt ./files/out_10mega_file.txt

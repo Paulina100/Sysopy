@@ -1,0 +1,14 @@
+SYS
+1kilo_file
+TIMES: real 0.006s user 0.000s sys 0.002s
+1mega_file
+TIMES: real 4.231s user 0.611s sys 2.041s
+10mega_file
+TIMES: real 43.428s user 6.263s sys 21.446s
+LIB
+1kilo_file
+TIMES: real 0.000s user 0.000s sys 0.000s
+1mega_file
+TIMES: real 0.140s user 0.088s sys 0.003s
+10mega_file
+TIMES: real 1.368s user 0.909s sys 0.032s
